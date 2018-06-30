@@ -4,6 +4,9 @@ import {
   Image, 
 } from 'semantic-ui-react';
 import About from './About'
+import Mom from '../images/mom.jpg'
+import MomDrop from '../images/momDrop.jpg'
+import Togo from '../images/toGo.jpg'
 
 class Home extends Component {
   render() {
