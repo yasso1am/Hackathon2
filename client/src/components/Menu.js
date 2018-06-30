@@ -15,7 +15,7 @@ class Menu extends React.Component {
     const { foods } = this.props
     return foods.map ( food =>
       <List.Item key={food.id}>
-        <Image avatar src='https://pixnio.com/free-images/2017/09/19/2017-09-19-06-55-44-1100x825.jpg' />
+        <Image size='small' src={food.image} />
         <List.Content>
           <List.Header as='h4'>{food.name}</List.Header>
           <List.Description>
