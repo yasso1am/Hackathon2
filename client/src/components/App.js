@@ -17,13 +17,12 @@ import FetchFoods from './FetchFoods';
 class App extends Component {
   render() {
     return (
-      <div>
+    <div>
       <NavBar />
         <Flash />
         <Switch>
             <Route exact path='/about' component={About} /> 
         <FetchUser>
-          <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/About' component={About} /> 
               <Route path ='/food/' component={FetchFoods} />
@@ -31,10 +30,10 @@ class App extends Component {
               <AuthRoute exact path='/register' component={Register} />
               <ProtectedRoute exact path='/Admin' component={Admin} />
               <Route component={NoMatch} />
-          </Switch>
           <Footer />
         </FetchUser>
-      </div>
+        </Switch>
+    </div>
     );
   }
 }
