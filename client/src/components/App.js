@@ -26,9 +26,10 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route exact path='/About' component={About} /> 
               <Route path ='/food/' component={FetchFoods} />
+              <ProtectedRoute exact path='/Admin' component={Admin} />
+              
               <AuthRoute exact path='/login' component={Login} />
               <AuthRoute exact path='/register' component={Register} />
-              <ProtectedRoute exact path='/Admin' component={Admin} />
               <Route component={NoMatch} />
           <Footer />
         </Switch>

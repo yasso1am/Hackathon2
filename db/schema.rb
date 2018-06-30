@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 20180630194809) do
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role"
     t.string "street_address"
     t.string "city"
     t.string "zip"

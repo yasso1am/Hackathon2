@@ -7,7 +7,20 @@ import { handleLogout } from '../reducers/user';
 class NavBar extends Component {
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
-
+    
+    if (user.admin) {
+      return (
+        <Menu.Menu position='right'>
+          <Link to='/admin'>
+            <Menu.Item name='Admin' />
+         </Link>
+          <Menu.Item
+            name='Logout'
+            onClick={() => dispatch(handleLogout(history))}
+          />
+        </Menu.Menu>
+      )
+    }
     if (user.id) {
       return (
         <Menu.Menu position='right'>
@@ -15,38 +28,45 @@ class NavBar extends Component {
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
-           <Link to='/Admin'>
-            <Menu.Item name='Admin login' />
-          </Link>
         </Menu.Menu>
-      );
+    )
+  }
+    else { 
+      return (
+      <Menu.Menu position='right'>
+        <Link to='/login'>
+          <Menu.Item name='Login' />
+       </Link>
+       <Link to='/register'>
+          <Menu.Item name='Register' />
+        </Link>
+      </Menu.Menu>
+      )
     }
+  }
+
+  leftNavs = () => {
     return (
       <Menu.Menu >
-
+        <Link to='/'>
+          <Menu.Item name='home' />
+        </Link>
         <Link to='/about'>
             <Menu.Item name='about' />
          </Link>
          <Link to='/food/menu'>
             <Menu.Item name='menu' />
           </Link>
-        <Link to='/register' position='right'>
-          <Menu.Item name='Register' />
-        </Link>
-        <Link to='/login'>
-          <Menu.Item name='Admin Login' />
-        </Link>
       </Menu.Menu>
-    );
+    )
   }
+
 
   render() {
     return (
       <div>
         <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item name='Home' />
-          </Link>
+          { this.leftNavs() }
           { this.rightNavs() }
         </Menu>
       </div>
