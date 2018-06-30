@@ -11,6 +11,7 @@ import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import About from './About'; 
+import Admin from './Admin';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
         <FetchUser>
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
+            <AuthRoute exact path='/Admin' component={Admin} />
             <Route component={NoMatch} />
         </FetchUser>
         </Switch>
