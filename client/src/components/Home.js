@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import { Header } from 'semantic-ui-react';
+import { 
+  Header,
+  Image, 
+} from 'semantic-ui-react';
+import About from './about'
 
 class Home extends Component {
   render() {
     return (
-      <Header as='h1' textAlign='center'>Home Component</Header>
+      <div>
+        <Header as='h1' textAlign='center'>Mom's Kitchen</Header>
+
+        <Image
+          src='/images/mom.jpg'
+          as='a'
+          size='medium'
+          href='/about'
+          target='_blank'
+        />
+      </div>
     );
   }
 }

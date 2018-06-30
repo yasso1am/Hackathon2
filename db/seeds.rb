@@ -17,4 +17,3 @@
   end
 
   puts "Mom's Kitchen has been seeded"
-  
