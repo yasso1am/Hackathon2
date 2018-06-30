@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+      <NavBar />
         <Flash />
         <FetchUser>
           <Switch>

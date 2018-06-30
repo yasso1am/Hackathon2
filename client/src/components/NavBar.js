@@ -22,8 +22,14 @@ class NavBar extends Component {
       );
     }
     return (
-      <Menu.Menu position='right'>
-        <Link to='/register'>
+      <Menu.Menu >
+        <Link to='/about'>
+          <Menu.Item name='About' position="left" />
+        </Link>
+        <Link to='/menu'>
+          <Menu.Item name='Menu' />
+        </Link>
+        <Link to='/register' position='right'>
           <Menu.Item name='Register' />
         </Link>
         <Link to='/login'>
@@ -59,3 +65,4 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(connect(mapStateToProps)(NavBar));
+
