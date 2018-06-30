@@ -8,13 +8,18 @@ import {
   List,
   Button, 
 } from 'semantic-ui-react'
+import axios from 'axios' 
 
 
 class Menu extends React.Component {
+  state = { cart: {}, food: [], quantity: ''}
 
-  // export const addItem = () => {
-  
-  // }
+  addItem = (e) => {
+    const { food, quantity, cart: { id } } = this.state 
+    const cart_food = { cart_id: id, food_id: food, quantity }
+    axios.put('/api/cart_foods/:id', { cart_food })
+      .then( res => this.setState({ quantity: '' }))
+  }
   
   foods = () => {
     const { foods } = this.props
@@ -24,7 +29,7 @@ class Menu extends React.Component {
         <List.Content>
           <List.Header as='h4'>{food.name}</List.Header>
           <List.Description>
-            {food.description}
+          {food.description}
           </List.Description>
           <List.Description>
            {food.category}
@@ -32,7 +37,8 @@ class Menu extends React.Component {
           <List.Description>
            ${food.price}
           </List.Description>
-          <Button onClick="addItem"> Add Item </Button> 
+          <input name="quantity" placeholder="quantity" type="integer"/> 
+          <Button onClick={this.addItem}> Add Item </Button> 
         </List.Content>
       </List.Item>
     )
