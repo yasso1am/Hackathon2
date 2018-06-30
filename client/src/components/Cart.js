@@ -49,7 +49,6 @@ class Cart extends React.component {
     )
   }
 
-  mapStatetoProps(User) 
 
 }
 

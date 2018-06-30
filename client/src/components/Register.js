@@ -151,10 +151,6 @@ class Register extends Component {
             />
           </Form.Field>
           </Form.Group>
-          <Form.Checkbox
-              label='Are you an admin?'
-              onChange={this.checkAdmin}
-              />
           <Segment basic textAlign='center'>
             <Button type='submit'>Submit</Button>
           </Segment>

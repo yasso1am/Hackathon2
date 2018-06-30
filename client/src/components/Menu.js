@@ -16,10 +16,7 @@ class Menu extends React.Component {
   state = { cart: {}, food: [], quantity: ''}
 
   addItem = (e) => {
-    const { food, quantity, cart: { id } } = this.state 
-    const cart_food = { cart_id: id, food_id: food, quantity }
-    axios.post('/api/cart_foods', { cart_food })
-      .then( res => this.setState({ quantity: '' }))
+    this.props.history.push('/login');
   }
   
   foods = () => {
