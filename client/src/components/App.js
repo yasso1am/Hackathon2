@@ -20,6 +20,8 @@ class App extends Component {
       <div>
       <NavBar />
         <Flash />
+        <Switch>
+            <Route exact path='/about' component={About} /> 
         <FetchUser>
           <Switch>
               <Route exact path='/' component={Home} />

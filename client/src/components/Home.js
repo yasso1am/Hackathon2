@@ -3,9 +3,13 @@ import {
   Header,
   Image, 
 } from 'semantic-ui-react';
+<<<<<<< HEAD
 import Mom from '../images/mom.jpg'
 import MomDrop from '../images/momDrop.jpg'
 import Togo from '../images/toGo.jpg'
+=======
+import About from './About'
+>>>>>>> food form
 
 class Home extends Component {
   render() {
