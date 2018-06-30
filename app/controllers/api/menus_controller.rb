@@ -1,6 +1,6 @@
 class Api::MenusController < ApplicationController
   before_action :set_menu, only: [:show, :create, :destroy, :update]
-  
+
   def index
     render json: Menu.all
   end
