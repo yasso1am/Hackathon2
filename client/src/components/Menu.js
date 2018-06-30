@@ -6,10 +6,15 @@ import {
   Divider,
   Image,
   List,
+  Button, 
 } from 'semantic-ui-react'
 
 
 class Menu extends React.Component {
+
+  // export const addItem = () => {
+  
+  // }
   
   foods = () => {
     const { foods } = this.props
@@ -27,6 +32,7 @@ class Menu extends React.Component {
           <List.Description>
            ${food.price}
           </List.Description>
+          <Button onClick="addItem"> Add Item </Button> 
         </List.Content>
       </List.Item>
     )

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :carts
     resources :menus
     resources :foods
+    resources :cart_foods, only: [:update, :destroy]
   end
 
   #Do not place any routes below this one
