@@ -8,26 +8,20 @@ import {
   Container,
    } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { addFood } from '../reducers/food'
 import styled from 'styled-components';
-import axios from 'axios'
-import { setHeaders } from '../reducers/headers'
-
 
 class FoodForm extends Component {
   state = { name: '', description: '', price: '', image: '' };
-  
-  
+    
   handleSubmit = (e) => {
     e.preventDefault();
     const { food } = this.state;
     const { history, dispatch } = this.props
-    axios.post('api/foods', { food } )
-      .then( res => {
-        dispatch(setHeaders(res.headers))
-        this.setState({ name: '', description: '', price: '', image: ''})
-        alert("Dish added to menu")
-      })   
-  }
+    this.props.dispatch(addFood(food))
+      this.setState({ name: '', description: '', price: '', image: ''})
+      alert("Dish added to menu")
+  }   
  
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,7 +29,7 @@ class FoodForm extends Component {
   }
 
   render() {
-    const { name, description, price} = this.state;
+    const { name, description, price, image} = this.state;
     return (
       <Background>
       <Segment basic>
@@ -71,6 +65,16 @@ class FoodForm extends Component {
                 type='price'
                 required
                 value={price}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='image'>Image URL</label>
+              <input
+                placeholder='Image URL'
+                name='image'
+                required
+                value={image}
                 onChange={this.handleChange}
               />
             </Form.Field>
