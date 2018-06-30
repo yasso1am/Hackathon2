@@ -5,7 +5,6 @@ import {
   Image,
   Button, 
   Segment, 
-  Checkbox,
   Container,
    } from 'semantic-ui-react';
 import { connect } from 'react-redux';
