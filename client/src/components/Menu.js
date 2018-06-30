@@ -9,6 +9,7 @@ import {
   Button, 
 } from 'semantic-ui-react'
 import axios from 'axios' 
+import { setHeaders } from '../reducers/headers' 
 
 
 class Menu extends React.Component {
@@ -17,7 +18,7 @@ class Menu extends React.Component {
   addItem = (e) => {
     const { food, quantity, cart: { id } } = this.state 
     const cart_food = { cart_id: id, food_id: food, quantity }
-    axios.put('/api/cart_foods/:id', { cart_food })
+    axios.post('/api/cart_foods', { cart_food })
       .then( res => this.setState({ quantity: '' }))
   }
   

@@ -1,17 +1,21 @@
 class Api::CartFoodsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+
 
   def new
-    foods = Food.all.map{ |i| name: i.name, i.id, i.price, i.category}
+    foods = Food.all.map{ |i| {name: i.name, id: i.id, price: i.price, category: i.category}}
   end 
 
   def create
     cart_food = CartFood.new(cart_food_params)
     if cart_food.save 
-      render json :cart_food 
+      render json: cart_food 
     else 
       render_error(cart_food)
     end 
   end
+
+
 
   def destroy
     CartFood.find(params[:id]).destroy
