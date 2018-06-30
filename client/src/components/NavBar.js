@@ -23,25 +23,19 @@ class NavBar extends Component {
     }
     return (
       <Menu.Menu >
+
         <Link to='/about'>
-          <Menu.Item name='About' position="left" />
-        </Link>
-        <Link to='/menu'>
-          <Menu.Item name='Menu' />
-        </Link>
+            <Menu.Item name='about' />
+         </Link>
+         <Link to='/food/menu'>
+            <Menu.Item name='menu' />
+          </Link>
         <Link to='/register' position='right'>
           <Menu.Item name='Register' />
         </Link>
         <Link to='/login'>
           <Menu.Item name='Admin Login' />
         </Link>
-
-         <Link to='/about'>
-            <Menu.Item name='about' />
-          </Link>
-          <Link to='/food/menu'>
-            <Menu.Item name='menu' />
-          </Link>
       </Menu.Menu>
     );
   }
