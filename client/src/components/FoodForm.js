@@ -14,11 +14,7 @@ import { setHeaders } from '../reducers/headers'
 
 
 class FoodForm extends Component {
-<<<<<<< HEAD
-  state = { name: '', description: '', price: '' };
-=======
   state = { name: '', description: '', price: '', image: '' };
->>>>>>> foods reducer update
   
   
   handleSubmit = (e) => {
@@ -28,12 +24,8 @@ class FoodForm extends Component {
     axios.post('api/foods', { food } )
       .then( res => {
         dispatch(setHeaders(res.headers))
-<<<<<<< HEAD
-        // history.push('/food/menu')
-=======
         this.setState({ name: '', description: '', price: '', image: ''})
         alert("Dish added to menu")
->>>>>>> foods reducer update
       })   
   }
  
@@ -102,10 +94,6 @@ const FormStyle = styled.div`
   margin: auto;
 `
 
-<<<<<<< HEAD
-export default connect()(FoodForm)
-=======
 export default connect()(FoodForm)
 
 
->>>>>>> foods reducer update
