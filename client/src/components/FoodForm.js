@@ -9,24 +9,23 @@ import {
   Container,
    } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { setFlash } from '../actions/flash';
 import styled from 'styled-components';
 import axios from 'axios'
-import { setHeaders } from './headers'
+import { setHeaders } from '../reducers/headers'
 
 
-class Landing extends Component {
+class FoodForm extends Component {
   state = { name: '', description: '', price: '' };
   
   
   handleSubmit = (e) => {
     e.preventDefault();
     const { food } = this.state;
-    const { dispatch } = this.props
+    const { history, dispatch } = this.props
     axios.post('api/foods', { food } )
       .then( res => {
         dispatch(setHeaders(res.headers))
-        history.push('/food/menu')
+        // history.push('/food/menu')
       })   
   }
  
@@ -95,4 +94,4 @@ const FormStyle = styled.div`
   margin: auto;
 `
 
-export default connect()(Landing)
+export default connect()(FoodForm)
