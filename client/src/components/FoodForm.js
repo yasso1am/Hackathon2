@@ -21,17 +21,13 @@ class Landing extends Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, description, price } = this.state;
-    return (dispatch) => {
-        axios.post('api/foods/:id')
-            .then ({ data, headers }) => {
-                dispatch{setHeaders(headers)}
-                history.push('/menu')
-            }
-    }
-         this.setState({ name: '', description: '', price: ''})
-       this.props.dispatch(setFlash('Thank you, We look foreward to seeing you!', 'green'))
-    
+    const { food } = this.state;
+    const { dispatch } = this.props
+    axios.post('api/foods', { food } )
+      .then( res => {
+        dispatch(setHeaders(res.headers))
+        history.push('/food/menu')
+      })   
   }
  
   handleChange = (e) => {
