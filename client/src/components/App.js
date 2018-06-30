@@ -12,6 +12,7 @@ import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
 import About from './About'; 
 import Admin from './Admin';
+import FetchFoods from './FetchFoods';
 
 class App extends Component {
   render() {
@@ -19,17 +20,18 @@ class App extends Component {
       <div>
         <NavBar />
         <Flash />
-        <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/About' component={About} /> 
         <FetchUser>
-            <AuthRoute exact path='/login' component={Login} />
-            <AuthRoute exact path='/register' component={Register} />
-            <AuthRoute exact path='/Admin' component={Admin} />
-            <Route component={NoMatch} />
+          <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/About' component={About} /> 
+              <Route path ='/food/' component={FetchFoods} />
+              <AuthRoute exact path='/login' component={Login} />
+              <AuthRoute exact path='/register' component={Register} />
+              <AuthRoute exact path='/Admin' component={Admin} />
+              <Route component={NoMatch} />
+          </Switch>
+          <Footer />
         </FetchUser>
-        </Switch>
-        <Footer />
       </div>
     );
   }

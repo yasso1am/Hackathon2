@@ -1,4 +1,5 @@
 class Api::FoodsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_food, only: [:show, :update, :destroy]
 
   def index
@@ -22,7 +23,7 @@ class Api::FoodsController < ApplicationController
     if @food.update(food_params)
       render json: @food
     else
-      json: { errors: @food.errors.full_messages.join(',') }, status: 422
+      render json: { errors: @food.errors.full_messages.join(',') }, status: 422
     end
   end
 
