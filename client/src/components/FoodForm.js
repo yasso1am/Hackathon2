@@ -29,11 +29,8 @@ class Landing extends Component {
                 history.push('/menu')
             }
     }
-
-       this.setState({ name: '', description: '', price: ''})
+         this.setState({ name: '', description: '', price: ''})
        this.props.dispatch(setFlash('Thank you, We look foreward to seeing you!', 'green'))
-      } else 
-      this.props.dispatch(setFlash('Emails do not match!, please try again', 'red'));
     
   }
  
@@ -42,18 +39,12 @@ class Landing extends Component {
     this.setState({ [name]: value})
   }
 
-  handleCheckbox = (e) => {
-    this.setState({ checkbox: !this.state.checkbox })
-  }
-
   render() {
     const { name, description, price} = this.state;
     return (
       <Background>
       <Segment basic>
-        <Header as='h1' textAlign='center'>Terra Nova Opening Soon</Header>
-          <Image src='https://specials-images.forbesimg.com/dam/imageserve/521462644/960x0.jpg?fit=scale' alt="YellowStone" height="450px;"  centered />
-        <Header textAlign='center' as='h1' > If you want to know more about us, leave us your info</Header>
+        <Header as='h1' textAlign='center'>Addd a Dish</Header>
         <FormStyle > 
         <Container>
           <Form onSubmit={this.handleSubmit}>
