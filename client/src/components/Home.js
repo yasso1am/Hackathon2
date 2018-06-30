@@ -3,21 +3,20 @@ import {
   Header,
   Image, 
 } from 'semantic-ui-react';
-import About from './about'
+import Mom from '../images/mom.jpg'
+import MomDrop from '../images/momDrop.jpg'
+import Togo from '../images/toGo.jpg'
 
 class Home extends Component {
   render() {
     return (
       <div>
         <Header as='h1' textAlign='center'>Mom's Kitchen</Header>
-
-        <Image
-          src='/images/mom.jpg'
-          as='a'
-          size='medium'
-          href='/about'
-          target='_blank'
-        />
+          <Image.Group size="small" align='center' padded>
+            <Image src={Mom} />
+            <Image src={Togo} />
+            <Image src={MomDrop} />
+          </Image.Group>
       </div>
     );
   }

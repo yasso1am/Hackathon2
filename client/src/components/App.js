@@ -19,14 +19,15 @@ class App extends Component {
         <NavBar />
         <Flash />
         <Switch>
+            <Route exact path='/' component={Home} />
             <Route exact path='/About' component={About} /> 
         <FetchUser>
-            <Route exact path='/' component={Home} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />
         </FetchUser>
         </Switch>
+        <Footer />
       </div>
     );
   }
