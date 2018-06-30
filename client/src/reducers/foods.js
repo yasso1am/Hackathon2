@@ -3,7 +3,7 @@ const FOODS = 'FOODS'
 const FOOD = 'FOOD'
 const ADD_FOOD = 'ADD_FOOD'
 const UPDATE_FOOD = 'UPDATE_FOOD'
-const DESTROY_FOOD = 'DESTROY_FOOD'
+const DELETE_FOOD = 'DELETE_FOOD'
 
 
 export const getFoods = () => {
@@ -25,7 +25,7 @@ export const getFood = (food) => {
 }
 export const addFood = (food) => {
   return(dispatch) => {
-    axios.post('/api/food', { food })
+    axios.post('/api/foods', { food })
     .then (res => {
       dispatch({ type: ADD_FOOD, food: res.data, headers: res.headers })
     })
@@ -43,7 +43,7 @@ export const destroyFood = (food) => {
   return(dispatch) => {
     axios.get(`/api/${food.id}`).destroy
     .then (res => {
-      dispatch({ type: DESTROY_FOOD, food: res.data, headers: res.headers })
+      dispatch({ type: DELETE_FOOD, food: res.data, headers: res.headers })
     })
   }
 }

@@ -8,7 +8,7 @@ import {
   Container,
    } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { addFood } from '../reducers/food'
+import { addFood } from '../reducers/foods'
 import styled from 'styled-components';
 
 class FoodForm extends Component {
@@ -16,9 +16,9 @@ class FoodForm extends Component {
     
   handleSubmit = (e) => {
     e.preventDefault();
-    const { food } = this.state;
+    const { name, description, price, image } = this.state;
     const { history, dispatch } = this.props
-    this.props.dispatch(addFood(food))
+    this.props.dispatch(addFood( {name, price, description, image} ))
       this.setState({ name: '', description: '', price: '', image: ''})
       alert("Dish added to menu")
   }   
