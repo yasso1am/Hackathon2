@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Header, Form, Button, Segment } from 'semantic-ui-react';
+import { 
+  Header, 
+  Form, 
+  Button, 
+  Segment,
+  Container,
+} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { registerUser } from '../reducers/user';
 import { setFlash } from '../reducers/flash';
@@ -15,11 +21,12 @@ class Register extends Component {
     email: '', 
     password: '', 
     passwordConfirmation: '',
+    admin: false
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { street_address, city, zip, state, telephone, name, email, password, passwordConfirmation } = this.state;
+    const { admin, street_address, city, zip, state, telephone, name, email, password, passwordConfirmation } = this.state;
     const { dispatch, history } = this.props;
     if (password === passwordConfirmation) {
       dispatch(registerUser({ street_address, city, zip, state, telephone, name, email, password, passwordConfirmation }, history));
@@ -31,13 +38,22 @@ class Register extends Component {
     this.setState({ [id]: value });
   }
 
+  checkAdmin = (e) => {
+    const { admin } = this.state
+    this.setState({ admin: !admin})
+  }
+
   render() {
-    const { name, street_address, city, zip, state, telephone, email, password, passwordConfirmation } = this.state;
+    const { admin, name, street_address, city, zip, state, telephone, email, password, passwordConfirmation } = this.state;
 
     return (
+      <Container>
       <Segment basic>
         <Header as='h1' textAlign='center'>Register Component</Header>
-        <Form onSubmit={this.handleSubmit}>
+        <Form 
+          onSubmit={this.handleSubmit}
+          textAlign='center'>
+        <Form.Group>
         <Form.Field>
             <label htmlFor='name'>Name</label>
             <input
@@ -58,6 +74,8 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
+          </Form.Group>
+          <Form.Group>
           <Form.Field>
             <label htmlFor='street_address'>Street Address</label>
             <input
@@ -98,6 +116,7 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
+          </Form.Group>
           <Form.Field>
             <label htmlFor='telephone'>Telephone</label>
             <input
@@ -108,6 +127,7 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
+          <Form.Group>
           <Form.Field>
             <label htmlFor='password'>Password</label>
             <input
@@ -130,11 +150,17 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
+          </Form.Group>
+          <Form.Checkbox
+              label='Are you an admin?'
+              onChange={this.checkAdmin}
+              />
           <Segment basic textAlign='center'>
             <Button type='submit'>Submit</Button>
           </Segment>
         </Form>
       </Segment>
+      </Container>
     );
   }
 }
