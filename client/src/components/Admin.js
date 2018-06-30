@@ -3,10 +3,7 @@ import {Container, Header} from 'semantic-ui-react';
    
 
 class Admin extends React.Component {
-        
-   
         render() {
-
 
             return(
                 <Container>
