@@ -20,9 +20,9 @@ class App extends Component {
     <div>
       <NavBar />
         <Flash />
+        <FetchUser>
         <Switch>
             <Route exact path='/about' component={About} /> 
-        <FetchUser>
               <Route exact path='/' component={Home} />
               <Route exact path='/About' component={About} /> 
               <Route path ='/food/' component={FetchFoods} />
@@ -31,8 +31,8 @@ class App extends Component {
               <ProtectedRoute exact path='/Admin' component={Admin} />
               <Route component={NoMatch} />
           <Footer />
-        </FetchUser>
         </Switch>
+        </FetchUser>
     </div>
     );
   }
